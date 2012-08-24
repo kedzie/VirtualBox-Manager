@@ -1,0 +1,9 @@
+[submodule "ActionBarSherlock"]
+	path = ActionBarSherlock
+	url = git@github.com:JakeWharton/ActionBarSherlock.git
+[submodule "tree-view-list-android"]
+	path = tree-view-list-android
+	url = git@github.com:kedzie/tree-view-list-android.git
+[submodule "VBoxManager"]
+	path = VBoxManager
+	url = git@github.com:kedzie/VBoxManager.git
