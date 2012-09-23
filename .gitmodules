@@ -7,3 +7,6 @@
 [submodule "VBoxManager"]
 	path = VBoxManager
 	url = git@github.com:kedzie/VBoxManager.git
+[submodule "VBox-Instrumentation"]
+	path = VBox-Instrumentation
+	url = git@github.com:kedzie/VBox-Instrumentation.git

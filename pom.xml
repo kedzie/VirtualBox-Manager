@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>virtualbox</groupId>
@@ -9,31 +8,97 @@
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
+	
+	<profiles>
+		<profile>
+			<id>development</id>
+			<activation><property><name>environment</name><value>!production</value></property></activation>
+			<properties>
+				<deployment.stage>In Development</deployment.stage>
+			</properties>
+			<modules>
+				<module>vbox-android</module>
+				<module>vbox-instrumentation</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>production</id>
+			<activation><property><name>environment</name><value>production</value></property></activation>
+			<properties>
+				<deployment.stage>In Production</deployment.stage>
+			</properties>
+			<modules>
+				<module>vbox-android</module>
+			</modules>
+		</profile>
+	</profiles>
+	
+	<organization>
+		<name>Marek Kedzierski</name>
+		<url>http://kedzie.github.com</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<email>mark.kedzierski@gmail.com</email>
+			<name>Marek Kedzierski</name>
+			<url>http://kedzie.github.com</url>
+			<roles><role>Lead Developer</role></roles>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://sites.google.com/site/markkedzierski2/files/MIT-LICENSE.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
+	<scm>
+		<url>https://github.com/kedzie/VirtualBox-Manager</url>
+		<connection>scm:git:git://github.com/kedzie/VirtualBox-Manager.git</connection>
+		<developerConnection>scm:git:git://github.com/kedzie/VirtualBox-Manager.git</developerConnection>
+	</scm>
 
 	<properties>
+		<environment>development</environment>
+		<github.global.server>github</github.global.server>
 	</properties>
-
+	
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>android</artifactId>
+				<version>4.0.1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>support-v4</artifactId>
+				<version>r7</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>android-test</artifactId>
+				<version>4.0.1.2</version>
+			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>4.10</version>
 			</dependency>
-			<dependency>
-				<groupId>com.google.android</groupId>
-				<artifactId>android</artifactId>
-				<version>2.3.1</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.android</groupId>
-				<artifactId>android-test</artifactId>
-				<version>2.3.1</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
+	    	<plugins>
+	    		<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration><source>1.6</source><target>1.6</target></configuration>
+			</plugin>
+	    	</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -50,28 +115,57 @@
 				<plugin>
 					<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 					<artifactId>android-maven-plugin</artifactId>
-					<version>3.3.3-SNAPSHOT</version>
+					<version>3.3.2</version>
 					<configuration>
-						<sdk>
-							<platform>10</platform>
-						</sdk>
+						<sdk><platform>15</platform></sdk>
 <!-- 						<emulator> -->
 <!-- 							<avd>23</avd> -->
 <!-- 							<wait>10000</wait> -->
 <!-- 						</emulator> -->
-						<zipalign>
-							<verbose>true</verbose>
-						</zipalign>
 						<undeployBeforeDeploy>true</undeployBeforeDeploy>
 					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>1.5</version>
+					<version>1.7</version>
 				</plugin>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>com.github.github</groupId>
+					<artifactId>downloads-maven-plugin</artifactId>
+					<version>0.7-SNAPSHOT</version>
+				</plugin>
+				<plugin>
+					<groupId>com.github.github</groupId>
+					<artifactId>site-maven-plugin</artifactId>
+					<version>0.8-SNAPSHOT</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>2.1.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-changelog-plugin</artifactId>
+					<version>2.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>2.9.1</version>
+				</plugin>
+				<plugin>
+		        		<groupId>org.apache.maven.plugins</groupId>
+		       			<artifactId>maven-surefire-report-plugin</artifactId>
+		        		<version>2.12.2</version>
+	      			</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.8.1</version>
+				</plugin>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -83,14 +177,10 @@
 									<pluginExecutionFilter>
 										<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 										<artifactId>android-maven-plugin</artifactId>
-										<versionRange>[3.2.0,)</versionRange>
-										<goals>
-											<goal>manifest-update</goal>
-										</goals>
+										<versionRange>[3.3.0,)</versionRange>
+										<goals><goal>manifest-update</goal></goals>
 									</pluginExecutionFilter>
-									<action>
-										<execute />
-									</action>
+									<action><ignore></ignore></action>
 								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
@@ -99,30 +189,15 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
-	<profiles>
-		<profile>
-			<!-- instrumentation tests -->
-			<id>development</id>
-			<activation>
-			</activation>
-			<modules>
-				<module>vbox-android</module>
-				<module>vbox-instrumentation</module>
-			</modules>
-			<properties>
-			</properties>
-		</profile>
-		<profile>
-			<!-- sign, zipalign ... not instrumentation tests -->
-			<id>production</id>
-			
-			<modules>
-				<module>vbox-android</module>
-			</modules>
-			<properties>
-			</properties>
-		</profile>
-	</profiles>
-
+	
+	<repositories>
+	    	<repository>
+	      		<id>googlecode-ksoap2-android</id><name>googlecode-ksoap2-android</name>
+	      		<url>http://ksoap2-android.googlecode.com/svn/m2-repo</url>
+	    	</repository>
+		<repository>
+			<id>jboss.releases</id><name>JBoss releases</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+		</repository>
+	</repositories>
 </project>
