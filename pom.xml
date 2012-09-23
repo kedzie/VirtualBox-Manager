@@ -17,7 +17,7 @@
 				<deployment.stage>In Development</deployment.stage>
 			</properties>
 			<modules>
-				<module>vbox-android</module>
+				<module>vbox-app</module>
 				<module>vbox-instrumentation</module>
 			</modules>
 		</profile>
@@ -28,7 +28,7 @@
 				<deployment.stage>In Production</deployment.stage>
 			</properties>
 			<modules>
-				<module>vbox-android</module>
+				<module>vbox-app</module>
 			</modules>
 		</profile>
 	</profiles>
