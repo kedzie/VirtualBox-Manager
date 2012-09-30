@@ -17,8 +17,8 @@
 				<deployment.stage>In Development</deployment.stage>
 			</properties>
 			<modules>
-				<module>vbox-app</module>
-				<module>vbox-instrumentation</module>
+				<module>VBoxManager</module>
+				<module>VBox-Instrumentation</module>
 			</modules>
 		</profile>
 		<profile>
@@ -28,7 +28,7 @@
 				<deployment.stage>In Production</deployment.stage>
 			</properties>
 			<modules>
-				<module>vbox-app</module>
+				<module>VBoxManager</module>
 			</modules>
 		</profile>
 	</profiles>
