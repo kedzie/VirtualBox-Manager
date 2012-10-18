@@ -4,7 +4,7 @@
 	
 	<groupId>virtualbox</groupId>
 	<artifactId>vbox-android-parent</artifactId>
-	<version>3.0.0</version>
+	<version>3.0.1</version>
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
@@ -17,6 +17,8 @@
 				<deployment.stage>In Development</deployment.stage>
 			</properties>
 			<modules>
+				<module>tree-view-list-android</module>
+				<module>ActionBarSherlock</module>
 				<module>VBoxManager</module>
 				<module>VBox-Instrumentation</module>
 			</modules>
@@ -28,6 +30,8 @@
 				<deployment.stage>In Production</deployment.stage>
 			</properties>
 			<modules>
+				<module>tree-view-list-android</module>
+				<module>ActionBarSherlock</module>
 				<module>VBoxManager</module>
 			</modules>
 		</profile>
@@ -50,7 +54,7 @@
 	<licenses>
 		<license>
 			<name>MIT License</name>
-			<url>http://sites.google.com/site/markkedzierski2/files/MIT-LICENSE.txt</url>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
