@@ -12,7 +12,12 @@
 	<profiles>
 		<profile>
 			<id>development</id>
-			<activation><property><name>environment</name><value>!production</value></property></activation>
+			<activation>
+				<property>
+					<name>environment</name>
+					<value>!production</value>
+				</property>
+			</activation>
 			<properties>
 				<deployment.stage>In Development</deployment.stage>
 			</properties>
@@ -25,7 +30,12 @@
 		</profile>
 		<profile>
 			<id>production</id>
-			<activation><property><name>environment</name><value>production</value></property></activation>
+			<activation>
+				<property>
+					<name>environment</name>
+					<value>production</value>
+				</property>
+			</activation>
 			<properties>
 				<deployment.stage>In Production</deployment.stage>
 			</properties>
@@ -96,7 +106,12 @@
 			      <groupId>org.aspectj</groupId>
 			      <artifactId>aspectjrt</artifactId>
 			      <version>1.6.11</version>
-    			</dependency>
+    		</dependency>
+			<dependency>
+				<groupId>com.google.code.ksoap2-android</groupId>
+				<artifactId>ksoap2-android</artifactId>
+				<version>2.6.5</version>
+			</dependency>	
 		</dependencies>
 	</dependencyManagement>
 
@@ -129,14 +144,14 @@
 				<plugin>
 					<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 					<artifactId>android-maven-plugin</artifactId>
-					<version>3.3.2</version>
+					<version>3.4.0</version>
 					<configuration>
 						<sdk><platform>15</platform></sdk>
 <!-- 						<emulator> -->
 <!-- 							<avd>23</avd> -->
 <!-- 							<wait>10000</wait> -->
 <!-- 						</emulator> -->
-						<undeployBeforeDeploy>true</undeployBeforeDeploy>
+						<undeployBeforeDeploy>false</undeployBeforeDeploy>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -184,7 +199,7 @@
 		</pluginManagement>
 	</build>
 	
-	<repositories>
+	<!--repositories>
 	    	<repository>
 	      		<id>googlecode-ksoap2-android</id><name>googlecode-ksoap2-android</name>
 	      		<url>http://ksoap2-android.googlecode.com/svn/m2-repo</url>
@@ -193,5 +208,5 @@
 			<id>jboss.releases</id><name>JBoss releases</name>
 			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
 		</repository>
-	</repositories>
+	</repositories-->
 </project>
