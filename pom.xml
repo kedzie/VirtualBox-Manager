@@ -8,6 +8,9 @@
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
+	<url>http://kedzie.github.com/VirtualBox-Manager</url>
+	<inceptionYear>2011</inceptionYear>
+	<description>Multi-module project for Android application 'VirtualBox Manager'.  Contains application, instrumentation tests, and 3rd-party libraries.</description>
 	
 	<profiles>
 		<profile>
@@ -15,7 +18,7 @@
 			<activation>
 				<property>
 					<name>environment</name>
-					<value>!production</value>
+					<value>development</value>
 				</property>
 			</activation>
 			<properties>
@@ -45,6 +48,22 @@
 				<module>VBoxManager</module>
 			</modules>
 		</profile>
+		<profile>
+			<id>site</id>
+			<activation>
+				<property>
+					<name>environment</name>
+					<value>site</value>
+				</property>
+			</activation>
+			<properties>
+				<deployment.stage>In Site Generation</deployment.stage>
+			</properties>
+			<modules>
+				<module>VBoxManager</module>
+				<module>VBox-Instrumentation</module>
+			</modules>
+		</profile>
 	</profiles>
 	
 	<organization>
@@ -64,7 +83,7 @@
 	<licenses>
 		<license>
 			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<url>http://kedzie.github.com/VBoxManager/LICENSE</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
@@ -74,6 +93,11 @@
 		<connection>scm:git:git://github.com/kedzie/VirtualBox-Manager.git</connection>
 		<developerConnection>scm:git:git://github.com/kedzie/VirtualBox-Manager.git</developerConnection>
 	</scm>
+	
+	<issueManagement>
+		<url>https://www.github.com/kedzie/VirtualBox-Manager/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
 
 	<properties>
 		<environment>development</environment>
@@ -97,36 +121,12 @@
 				<artifactId>android-test</artifactId>
 				<version>4.1.1.4</version>
 			</dependency>
-			<dependency>
-				<groupId>com.google.guava</groupId>
-				<artifactId>guava</artifactId>
-				<version>13.0.1</version>
-			</dependency>
-			<dependency>
-			      <groupId>org.aspectj</groupId>
-			      <artifactId>aspectjrt</artifactId>
-			      <version>1.6.11</version>
-    			</dependency>
-			<dependency>
-				<groupId>com.google.code.ksoap2-android</groupId>
-				<artifactId>ksoap2-android</artifactId>
-				<version>2.6.5</version>
-			</dependency>	
-			<dependency>
-				<groupId>commons-beanutils</groupId>
-				<artifactId>commons-beanutils</artifactId>
-				<version>1.8.3</version>
-				<exclusions>
-				    <exclusion>
-				        <groupId>commons-logging</groupId>
-				        <artifactId>commons-logging</artifactId>
-				    </exclusion>
-				</exclusions>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
+		<directory>bin</directory>
+		
 	    	<plugins>
 	    		<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -136,11 +136,6 @@
 	    	</plugins>
 		<pluginManagement>
 			<plugins>
-			    	<plugin>
-				        <groupId>org.codehaus.mojo</groupId>
-				        <artifactId>aspectj-maven-plugin</artifactId>
-				        <version>1.4</version>
-				</plugin>
 				<plugin>
 					<artifactId>maven-jarsigner-plugin</artifactId>
 					<version>1.2</version>
@@ -210,21 +205,19 @@
 		</pluginManagement>
 	</build>
 	
-	<!--repositories>
-	    	<repository>
-	      		<id>googlecode-ksoap2-android</id><name>googlecode-ksoap2-android</name>
-	      		<url>http://ksoap2-android.googlecode.com/svn/m2-repo</url>
-	    	</repository>
-		<repository>
-			<id>jboss.releases</id><name>JBoss releases</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
-		</repository>
-	</repositories-->
-	<issueManagement>
-		<url>https://www.github.com/kedzie/VirtualBox-Manager/issues</url>
-		<system>GitHub Issues</system>
-	</issueManagement>
-	<url>http://kedzie.github.com/VirtualBox-Manager</url>
-	<inceptionYear>2011</inceptionYear>
-	<description>Multi-module project for Android application 'VirtualBox Manager'.  Contains application, instrumentation tests, and 3rd-party libraries.</description>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.1.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changelog-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+		</plugins>
+	</reporting>
+	
 </project>
