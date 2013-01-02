@@ -6,4 +6,8 @@ cat tree-view-list-android/.project.mvn | sed -e s/tree-view-list-android/Action
 cat tree-view-list-android/.project.eclipse | sed -e s/tree-view-list-android/ActionBarSherlock/ > ActionBarSherlock/library/.project.eclipse
 cp tree-view-list-android/.classpath ActionBarSherlock/library/.classpath
 ./eclipse-conf.sh mvn
-git submodule foreach git checkout $1
+cd VBoxManager
+git checkout $1
+cd ../VBox-Instrumentation
+git checkout $1
+cd .. 
