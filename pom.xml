@@ -4,7 +4,7 @@
 	
 	<groupId>virtualbox</groupId>
 	<artifactId>vbox-android-parent</artifactId>
-	<version>3.0.7-SNAPSHOT</version>
+	<version>3.0.7</version>
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
@@ -15,6 +15,8 @@
 	<properties>
 		<environment>development</environment>
 		<github.global.server>github</github.global.server>
+		<github.downloads.repositoryOwner>kedzie</github.downloads.repositoryOwner>
+		<github.downloads.repositoryName>VirtualBox-Manager</github.downloads.repositoryName>
 	</properties>
 	
 	<organization>
@@ -33,8 +35,8 @@
 
 	<licenses>
 		<license>
-			<name>MIT License</name>
-			<url>http://kedzie.github.com/VBoxManager/LICENSE</url>
+			<name>Apache License Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
@@ -160,8 +162,6 @@
 				<deployment.stage>In Development</deployment.stage>
 			</properties>
 			<modules>
-				<module>tree-view-list-android</module>
-				<module>ActionBarSherlock</module>
 				<module>VBoxManager</module>
 				<module>VBox-Instrumentation</module>
 			</modules>
@@ -181,22 +181,6 @@
 				<module>tree-view-list-android</module>
 				<module>ActionBarSherlock</module>
 				<module>VBoxManager</module>
-			</modules>
-		</profile>
-		<profile>
-			<id>site</id>
-			<activation>
-				<property>
-					<name>environment</name>
-					<value>site</value>
-				</property>
-			</activation>
-			<properties>
-				<deployment.stage>In Site Generation</deployment.stage>
-			</properties>
-			<modules>
-				<module>VBoxManager</module>
-				<module>VBox-Instrumentation</module>
 			</modules>
 		</profile>
 	</profiles>

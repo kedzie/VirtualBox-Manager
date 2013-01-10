@@ -4,6 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd">
   <body>
+
     <menu name="Overview">
       <item name="Introduction" href="index.html"/>
       <item name="Goals" href="plugin-info.html"/>
@@ -12,6 +13,7 @@
       <item name="Migrate" href="migrate.html"/>
       <item name="Maven 3" href="maven-3.html"/>
     </menu>
+
     <menu name="Configuration">
       <item name="Internationalization" href="i18n.html"/>
       <item name="Site Descriptor" href="../../doxia/doxia-sitetools/doxia-decoration-model/decoration.html"/>
@@ -29,5 +31,6 @@
       <item name="Excluding Document Formats" href="/examples/moduleexcludes.html"/>
       <item name="Deploying to sourceforge.net" href="/examples/site-deploy-to-sourceforge.net.html"/>
     </menu>
+
   </body>
 </project>
