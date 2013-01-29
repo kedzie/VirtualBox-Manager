@@ -4,7 +4,7 @@
 	
 	<groupId>virtualbox</groupId>
 	<artifactId>vbox-android-parent</artifactId>
-	<version>3.1.2</version>
+	<version>3.1.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
@@ -162,8 +162,11 @@
 				<deployment.stage>In Development</deployment.stage>
 			</properties>
 			<modules>
+				<module>ActionBarSherlock</module>
+				<module>tree-view-list-android</module>
 				<module>VBoxManager</module>
 				<module>VBox-Instrumentation</module>
+				<module>vbox-key</module>
 			</modules>
 		</profile>
 		<profile>
@@ -178,9 +181,8 @@
 				<deployment.stage>In Production</deployment.stage>
 			</properties>
 			<modules>
-				<module>tree-view-list-android</module>
-				<module>ActionBarSherlock</module>
 				<module>VBoxManager</module>
+				<module>vbox-key</module>
 			</modules>
 		</profile>
 	</profiles>
