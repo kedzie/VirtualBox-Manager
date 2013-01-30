@@ -151,6 +151,25 @@
 	
 	<profiles>
 		<profile>
+			<id>all</id>
+			<activation>
+				<property>
+					<name>environment</name>
+					<value>all</value>
+				</property>
+			</activation>
+			<properties>
+				<deployment.stage>Building All Projects</deployment.stage>
+			</properties>
+			<modules>
+				<module>ActionBarSherlock</module>
+				<module>tree-view-list-android</module>
+				<module>VBoxManager</module>
+				<module>VBox-Instrumentation</module>
+				<module>vbox-key</module>
+			</modules>
+		</profile>
+		<profile>
 			<id>development</id>
 			<activation>
 				<property>
@@ -162,8 +181,6 @@
 				<deployment.stage>In Development</deployment.stage>
 			</properties>
 			<modules>
-				<module>ActionBarSherlock</module>
-				<module>tree-view-list-android</module>
 				<module>VBoxManager</module>
 				<module>VBox-Instrumentation</module>
 				<module>vbox-key</module>
