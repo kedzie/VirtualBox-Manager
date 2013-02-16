@@ -163,6 +163,7 @@
 			</properties>
 			<modules>
 				<module>ActionBarSherlock</module>
+				<module>NineOldAndroids</module>
 				<module>tree-view-list-android</module>
 				<module>VBoxManager</module>
 				<module>VBox-Instrumentation</module>
