@@ -4,7 +4,7 @@
 	
 	<groupId>virtualbox</groupId>
 	<artifactId>vbox-android-parent</artifactId>
-	<version>3.1.5</version>
+	<version>3.1.6</version>
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
@@ -164,6 +164,7 @@
 			<modules>
 				<module>ActionBarSherlock</module>
 				<module>NineOldAndroids</module>
+				<module>ksoap-client</module>
 				<module>tree-view-list-android</module>
 				<module>VBoxManager</module>
 				<module>VBox-Instrumentation</module>

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>virtualbox</groupId>
 		<artifactId>vbox-android-parent</artifactId>
-		<version>3.1.5</version>
+		<version>3.1.6</version>
 	</parent>
 
 	<artifactId>vbox-key</artifactId>
@@ -67,7 +67,7 @@
 						<configuration>
 							<removeExistingSignatures>true</removeExistingSignatures>
 							<archive>${project.build.directory}/${project.build.finalName}.apk</archive>
-							<keystore>../doc/android.keystore</keystore>
+							<keystore>/home/kedzie/ssl/virtualbox.keystore</keystore>
 							<storepass>android</storepass>
 							<alias>kedzieandroid</alias>
 							<keypass>android</keypass>
