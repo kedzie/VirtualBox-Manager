@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>virtualbox</groupId>
 		<artifactId>vbox-android-parent</artifactId>
-		<version>3.1.6</version>
+		<version>3.1.7</version>
 	</parent>
 
 	<artifactId>vbox-key</artifactId>
@@ -35,7 +35,6 @@
 				<configuration>
 					<manifestVersionName></manifestVersionName>
 					<manifestVersionCodeUpdateFromVersion>true</manifestVersionCodeUpdateFromVersion>
-					<attachSources>true</attachSources>
 				</configuration>
 				<executions>
 					<execution>
@@ -67,7 +66,7 @@
 						<configuration>
 							<removeExistingSignatures>true</removeExistingSignatures>
 							<archive>${project.build.directory}/${project.build.finalName}.apk</archive>
-							<keystore>/home/kedzie/ssl/virtualbox.keystore</keystore>
+							<keystore>/home/kedzie/Dropbox/ssh/virtualbox.keystore</keystore>
 							<storepass>android</storepass>
 							<alias>kedzieandroid</alias>
 							<keypass>android</keypass>
@@ -86,9 +85,6 @@
 						<artifactId>android-maven-plugin</artifactId>
 						<inherited>true</inherited>
 						<configuration>
-							<manifestDebuggable>false</manifestDebuggable>
-							<manifestVersionName></manifestVersionName>
-							<manifestVersionCodeUpdateFromVersion>true</manifestVersionCodeUpdateFromVersion>
 							<sign>
 								<debug>false</debug>
 							</sign>
@@ -107,13 +103,6 @@
 							</proguard>
 						</configuration>
 						<executions>
-							<execution>
-								<id>manifest</id>
-								<phase>process-resources</phase>
-								<goals>
-									<goal>manifest-update</goal>
-								</goals>
-							</execution>
 							<execution>
 								<id>zip</id>
 								<phase>package</phase>
