@@ -13,3 +13,6 @@
 [submodule "NineOldAndroids"]
 	path = NineOldAndroids
 	url = git@github.com:JakeWharton/NineOldAndroids.git
+[submodule "fest-android"]
+	path = fest-android
+	url = git@github.com:square/fest-android.git

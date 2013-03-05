@@ -4,7 +4,7 @@
 	
 	<groupId>virtualbox</groupId>
 	<artifactId>vbox-android-parent</artifactId>
-	<version>3.1.8</version>
+	<version>3.1.9</version>
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
@@ -78,7 +78,7 @@
         			<groupId>com.squareup</groupId>
         			<artifactId>fest-android</artifactId>
         			<version>1.0</version>
-      		</dependency>
+      			</dependency>
 			<dependency> 
  				<groupId>com.google.guava</groupId> 
  				<artifactId>guava</artifactId> 
