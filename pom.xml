@@ -4,7 +4,7 @@
 	
 	<groupId>virtualbox</groupId>
 	<artifactId>vbox-android-parent</artifactId>
-	<version>3.1.9</version>
+	<version>3.1.9-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
@@ -88,6 +88,11 @@
 				<groupId>commons-validator</groupId>
 				<artifactId>commons-validator</artifactId>
 				<version>1.4.0</version>
+			</dependency>
+			<dependency>
+				<groupId>nf.fr.eraasoft</groupId>
+				<artifactId>objectpool</artifactId>
+				<version>1.1.2</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -240,5 +245,13 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	
+	<repositories>
+		<repository>
+			<id>oss.sonatype</id>
+			<name>Sonatype repository</name>
+			<url>http://oss.sonatype.org/content/groups/public</url>
+		</repository>
+  </repositories>
 	
 </project>
