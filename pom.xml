@@ -4,7 +4,7 @@
 	
 	<groupId>virtualbox</groupId>
 	<artifactId>vbox-android-parent</artifactId>
-	<version>3.1.2</version>
+	<version>3.1.9</version>
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
@@ -57,17 +57,42 @@
 			<dependency>
 				<groupId>com.google.android</groupId>
 				<artifactId>android</artifactId>
-				<version>4.1.1.4</version>
+				<version>4.2.2</version>
 			</dependency>
 			<dependency>
 				<groupId>com.google.android</groupId>
 				<artifactId>support-v4</artifactId>
-				<version>r11</version>
+				<version>r12</version>
 			</dependency>
 			<dependency>
 				<groupId>com.google.android</groupId>
 				<artifactId>android-test</artifactId>
 				<version>4.1.1.4</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.findbugs</groupId>
+				<artifactId>jsr305</artifactId>
+				<version>2.0.1</version>
+			</dependency>
+			<dependency>
+        			<groupId>com.squareup</groupId>
+        			<artifactId>fest-android</artifactId>
+        			<version>1.0</version>
+      			</dependency>
+			<dependency> 
+ 				<groupId>com.google.guava</groupId> 
+ 				<artifactId>guava</artifactId> 
+ 				<version>r09</version> 
+ 			</dependency>
+			<dependency>
+				<groupId>commons-validator</groupId>
+				<artifactId>commons-validator</artifactId>
+				<version>1.4.0</version>
+			</dependency>
+			<dependency>
+				<groupId>nf.fr.eraasoft</groupId>
+				<artifactId>objectpool</artifactId>
+				<version>1.1.2</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -151,6 +176,27 @@
 	
 	<profiles>
 		<profile>
+			<id>all</id>
+			<activation>
+				<property>
+					<name>environment</name>
+					<value>all</value>
+				</property>
+			</activation>
+			<properties>
+				<deployment.stage>Building All Projects</deployment.stage>
+			</properties>
+			<modules>
+				<module>ActionBarSherlock</module>
+				<module>NineOldAndroids</module>
+				<module>fest-android</module>
+				<module>tree-view-list-android</module>
+				<module>VBoxManager</module>
+				<module>VBox-Instrumentation</module>
+				<module>vbox-key</module>
+			</modules>
+		</profile>
+		<profile>
 			<id>development</id>
 			<activation>
 				<property>
@@ -164,6 +210,7 @@
 			<modules>
 				<module>VBoxManager</module>
 				<module>VBox-Instrumentation</module>
+				<module>vbox-key</module>
 			</modules>
 		</profile>
 		<profile>
@@ -178,9 +225,8 @@
 				<deployment.stage>In Production</deployment.stage>
 			</properties>
 			<modules>
-				<module>tree-view-list-android</module>
-				<module>ActionBarSherlock</module>
 				<module>VBoxManager</module>
+				<module>vbox-key</module>
 			</modules>
 		</profile>
 	</profiles>
@@ -199,5 +245,13 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	
+	<repositories>
+		<repository>
+			<id>oss.sonatype</id>
+			<name>Sonatype repository</name>
+			<url>http://oss.sonatype.org/content/groups/public</url>
+		</repository>
+  </repositories>
 	
 </project>
