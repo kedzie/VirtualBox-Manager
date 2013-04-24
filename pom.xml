@@ -4,13 +4,13 @@
 	
 	<groupId>virtualbox</groupId>
 	<artifactId>vbox-android-parent</artifactId>
-	<version>3.2.0</version>
+	<version>3.2.1</version>
 	<packaging>pom</packaging>
 	
 	<name>VirtualBox Manager - Parent</name>
 	<url>http://kedzie.github.com/VirtualBox-Manager</url>
 	<inceptionYear>2011</inceptionYear>
-	<description>Multi-module project for Android application 'VirtualBox Manager'.  Contains application, instrumentation tests, and 3rd-party libraries.</description>
+	<description>Multi-module project for Android application 'VirtualBox Manager'.  Contains application, instrumentation tests and 3rd-party libraries.</description>
 	
 	<properties>
 		<environment>development</environment>
@@ -61,13 +61,8 @@
 			</dependency>
 			<dependency>
 				<groupId>com.google.android</groupId>
-				<artifactId>support-v4</artifactId>
+				<artifactId>support-v4-animator</artifactId>
 				<version>r12</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.android</groupId>
-				<artifactId>android-test</artifactId>
-				<version>4.1.1.4</version>
 			</dependency>
 			<dependency>
 				<groupId>com.google.code.findbugs</groupId>
@@ -75,10 +70,10 @@
 				<version>2.0.1</version>
 			</dependency>
 			<dependency>
-        			<groupId>com.squareup</groupId>
-        			<artifactId>fest-android</artifactId>
-        			<version>1.0</version>
-      			</dependency>
+        		<groupId>com.squareup</groupId>
+        		<artifactId>fest-android</artifactId>
+        		<version>1.0</version>
+      		</dependency>
 			<dependency> 
  				<groupId>com.google.guava</groupId> 
  				<artifactId>guava</artifactId> 
@@ -99,14 +94,13 @@
 
 	<build>
 		<directory>bin</directory>
-		
-	    	<plugins>
-	    		<plugin>
+	    <plugins>
+	    	<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration><source>1.6</source><target>1.6</target></configuration>
 			</plugin>
-	    	</plugins>
+    </plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -133,11 +127,6 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
 					<version>1.7</version>
-				</plugin>
-				<plugin>
-					<groupId>com.github.github</groupId>
-					<artifactId>downloads-maven-plugin</artifactId>
-					<version>0.7-SNAPSHOT</version>
 				</plugin>
 				<plugin>
 					<groupId>com.github.github</groupId>
@@ -210,23 +199,6 @@
 			<modules>
 				<module>VBoxManager</module>
 				<module>VBox-Instrumentation</module>
-				<module>vbox-key</module>
-			</modules>
-		</profile>
-		<profile>
-			<id>production</id>
-			<activation>
-				<property>
-					<name>environment</name>
-					<value>production</value>
-				</property>
-			</activation>
-			<properties>
-				<deployment.stage>In Production</deployment.stage>
-			</properties>
-			<modules>
-				<module>VBoxManager</module>
-				<module>vbox-key</module>
 			</modules>
 		</profile>
 	</profiles>
